@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "fidi-ga"
+  "defaultProject": "fidi-ga",
+  "cli": {
+    "analytics": "7f25554e-4ecb-40f3-b995-740189c1f23d"
+  }
 }

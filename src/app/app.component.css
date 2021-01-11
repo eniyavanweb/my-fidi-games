@@ -1,0 +1,31 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    
+}
+.heading
+{
+    background-color: #1D1824;
+}
+.game-link nav
+{
+    background-color: #1D1824;
+    padding: 24px 0px;
+}
+.heading h1 
+{
+    font-size: 42px;
+    color: #fff;
+    padding: 31px 37px;
+}
+
+.add-game
+{
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    background: #FCBC3C;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 31px;
+}
