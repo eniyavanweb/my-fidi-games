@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "new-game-dc874": {
+      "hosting": {
+        "fidi-ga": [
+          "new-game-dc874"
+        ]
+      }
+    }
+  }
+}

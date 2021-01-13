@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
     });
   }
-  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editaddress: any; address: any; })
+  EditRecord(Record: { isedit: any; editname: any; name: any; editdescription: any; description: any; editaddress: any; address: any; })
   {
     Record.isedit = true;
     Record.editname = Record.name;
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     Record.editaddress = Record.address;
   }
 
-  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; id: any; isedit: boolean; })
+  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; id: any; isedit: any; })
   {
     let record = {'name':recorddata.editname, 'address':recorddata.editaddress, 'description':recorddata.editdescription};
     this.crudservice.update_employee(recorddata.id, record);
