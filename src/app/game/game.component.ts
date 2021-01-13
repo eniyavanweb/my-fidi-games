@@ -10,10 +10,10 @@ import { CrudService } from '../service/crud.service';
 export class GameComponent implements OnInit {
   
 employee: any;
-employeeName:string;
-employeeAddress:string;
-description:string;
-message:string;
+employeeName:string | undefined;
+employeeAddress:string | undefined;
+description:string | undefined;
+message:string | undefined;
 
 constructor(public crudservice:CrudService){}
 ngOnInit() {
@@ -23,9 +23,9 @@ ngOnInit() {
       return {
         id: e.payload.doc.id,
         isedit: false,
-        game: e.payload.doc.data()['name'],
-        url: e.payload.doc.data()['address'],
-        description: e.payload.doc.data()['description']
+        ...e.payload.doc.data() as ['name'],
+        ...e.payload.doc.data() as ['address'],
+        ...e.payload.doc.data() as ['description']
         
       };
     })
@@ -36,10 +36,8 @@ ngOnInit() {
 
 CreateRecord()
 {
-  let Record = {};
-  Record['name'] = this.employeeName;
-  Record['address'] = this.employeeAddress;
-  Record['description'] = this.description;
+  let Record = {'name': this.employeeName, 'address': this.employeeAddress, 'description':this.description};
+
 
   this.crudservice.create_Newemployee(Record).then(res => {
 

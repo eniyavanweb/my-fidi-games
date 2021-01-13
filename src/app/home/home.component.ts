@@ -9,10 +9,10 @@ import { CrudService } from '../service/crud.service';
 export class HomeComponent implements OnInit {
 
   employee: any;
-  employeeName: string;
-  employeeAddress: string;
-  description:string;
-  message: string;
+  employeeName: string | undefined;
+  employeeAddress: string | undefined;
+  description:string | undefined;
+  message: string | undefined;
 
 
   constructor(public crudservice: CrudService) { }
@@ -26,16 +26,16 @@ export class HomeComponent implements OnInit {
         return {
           id: e.payload.doc.id,
           isedit: false,
-          name: e.payload.doc.data()['name'],
-          address: e.payload.doc.data()['address'],
-          description:e.payload.doc.data()['description']
+          ...e.payload.doc.data() as ['name'],
+          ...e.payload.doc.data() as ['address'],
+          ...e.payload.doc.data() as ['description']
         };
       })
       console.log(this.employee);
 
     });
   }
-  EditRecord(Record)
+  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editaddress: any; address: any; })
   {
     Record.isedit = true;
     Record.editname = Record.name;
@@ -43,17 +43,14 @@ export class HomeComponent implements OnInit {
     Record.editaddress = Record.address;
   }
 
-  Updatarecord(recorddata)
+  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; id: any; isedit: boolean; })
   {
-    let record = {};
-    record['name'] = recorddata.editname;
-    record['address'] = recorddata.editaddress;
-    record['description'] =recorddata.editdescription;
+    let record = {'name':recorddata.editname, 'address':recorddata.editaddress, 'description':recorddata.editdescription};
     this.crudservice.update_employee(recorddata.id, record);
     recorddata.isedit = false;
   }
 
-  Deleteemployee(record_id)
+  Deleteemployee(record_id: any)
   {
     this.crudservice.delete_employee(record_id);
   }
