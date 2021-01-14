@@ -21,12 +21,14 @@ import { routingComponent } from './app-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
     HomeComponent,
-    routingComponent
+    routingComponent,
+
 
   ],
   imports: [
@@ -36,7 +38,8 @@ import { routingComponent } from './app-routing.module';
     AngularFireDatabaseModule,
     FormsModule,
     AngularFireStorageModule,
-    RouterModule
+    RouterModule,
+    
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

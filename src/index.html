@@ -23,5 +23,19 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
+
+    <script>
+      $(function() {
+  $(".like").click(function() {
+      var input = $(this).siblings('.qty1');
+      $('.like').append(input.val()) + 1;
+  });
+
+  $(".dislike").click(function() {
+      var input = $(this).siblings('.qty2');
+      $('.dislike').append(input.val()) - 1;
+  });
+});
+    </script>
 </body>
 </html>
