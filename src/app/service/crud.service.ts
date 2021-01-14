@@ -5,6 +5,9 @@ import {AngularFirestore} from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class CrudService {
+  object(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(public fireservices:AngularFirestore) { }
 

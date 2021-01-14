@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component,  Input,  OnInit } from '@angular/core';
 import { CrudService } from '../service/crud.service';
 
 
@@ -9,10 +9,19 @@ import { CrudService } from '../service/crud.service';
 })
 export class HomeComponent implements OnInit {
 
+	@Input() movieTitle: string | undefined;
+	@Input() movieDescription: string | undefined;
+	@Input() likesCount: number | any;
+	@Input() isActive: boolean | undefined;
+
+
+
   employee: any;
   employeeName: string | undefined;
   employeeAddress: string | undefined;
   description: string | undefined;
+  description2: Number | undefined;
+  description3: Number | undefined;
   message: string | undefined;
 
 
@@ -29,22 +38,26 @@ export class HomeComponent implements OnInit {
           isedit: false,
           ...e.payload.doc.data() as ['name'],
           ...e.payload.doc.data() as ['address'],
-          ...e.payload.doc.data() as ['description']
+          ...e.payload.doc.data() as ['description'],
+          ...e.payload.doc.data() as ['description2'],
+          ...e.payload.doc.data() as ['description2']
         };
       })
       console.log(this.employee);
 
     });
   }
-  EditRecord(Record: { isedit: any; editname: any; name: any; editdescription: any; description: any; editaddress: any; address: any; }) {
+  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editdescription2: any; description2: any; editdescription3: any; description3: any; editaddress: any; address: any; }) {
     Record.isedit = true;
     Record.editname = Record.name;
     Record.editdescription = Record.description;
+    Record.editdescription2 = Record.description2;
+    Record.editdescription3 = Record.description3;
     Record.editaddress = Record.address;
   }
 
-  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; id: any; isedit: any; }) {
-    let record = { 'name': recorddata.editname, 'address': recorddata.editaddress, 'description': recorddata.editdescription };
+  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; editdescription2: any; editdescription3: any; id: string; isedit: boolean; }) {
+    let record = { 'name': recorddata.editname, 'address': recorddata.editaddress, 'description': recorddata.editdescription, 'description2': recorddata.editdescription2, 'description3': recorddata.editdescription3 };
     this.crudservice.update_employee(recorddata.id, record);
     recorddata.isedit = false;
   }
@@ -56,6 +69,11 @@ export class HomeComponent implements OnInit {
   goToUrl(url: any): void {
     window.open("" + url, "_blank");
   }
+
+  onClick() {
+		this.likesCount += (this.isActive) ? -1 : 1;
+		this.isActive = !this.isActive;
+	}
 
 }
 

@@ -8,7 +8,7 @@
         </div>
         <div class="container">
             <div class="row justify-content-center p-2">
-                <h1>Add-Games</h1>
+                <h1>Add a Games</h1>
             </div>
             <div class="form-group">
                 <label>Name of the Game</label>
@@ -17,8 +17,19 @@
 
             <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control" [(ngModel)]="description" placeholder="Enter description">
+                <input type="text" class="form-control description" [(ngModel)]="description" placeholder="Enter description">
             </div>
+
+            <div class="form-group">
+                <label>Player Count</label><br>
+                <div class="minum-count" > 
+                    <label>Minum count</label>
+                 <input type="number" class="form-control mini-input" [(ngModel)]="description2" placeholder="">
+
+                 <label>Maximun count</label>
+                 <input type="number" class="form-control mini-input" [(ngModel)]="description3" placeholder="">
+               </div>
+          </div>
 
             <div class="form-group">
                 <label>Game URL</label>

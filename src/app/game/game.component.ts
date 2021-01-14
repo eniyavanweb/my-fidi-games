@@ -13,6 +13,8 @@ employee: any;
 employeeName:string | undefined;
 employeeAddress:string | undefined;
 description:string | undefined;
+description2:string | undefined;
+description3:string | undefined;
 message:string | undefined;
 
 constructor(public crudservice:CrudService){}
@@ -25,7 +27,9 @@ ngOnInit() {
         isedit: false,
         ...e.payload.doc.data() as ['name'],
         ...e.payload.doc.data() as ['address'],
-        ...e.payload.doc.data() as ['description']
+        ...e.payload.doc.data() as ['description'],
+        ...e.payload.doc.data() as ['description2'],
+        ...e.payload.doc.data() as ['description3']
         
       };
     })
@@ -36,7 +40,7 @@ ngOnInit() {
 
 CreateRecord()
 {
-  let Record = {'name': this.employeeName, 'address': this.employeeAddress, 'description':this.description};
+  let Record = {'name': this.employeeName, 'address': this.employeeAddress, 'description':this.description, 'description2':this.description2, 'description3':this.description3};
 
 
   this.crudservice.create_Newemployee(Record).then(res => {
@@ -44,6 +48,8 @@ CreateRecord()
       this.employeeName = "";
       this.employeeAddress ="";
       this.description ="";
+      this.description2 ="";
+      this.description3 ="";
       console.log(res);
       this.message = "Game Added";
   }).catch(error => {

@@ -16,7 +16,7 @@
 .container
 {
     background-color: #1A121E;
-    padding: 7em;
+    padding: 2em 6em;
 }
 
 label {
@@ -34,11 +34,22 @@ label {
     background-color: #FFEB3B;
     border-color: #FFEB3B;
 }
+.btn-primary {
+    background-image: linear-gradient(#54b4eb,#2fa4e7 60%,#1a1b1c);
+    background-repeat: no-repeat;
+}
 
+.row h1
+{
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+}
 
-
-
-
+.description
+{
+    padding: 23px 97px 102px 20px;
+}
 
 .bg-model
 {
@@ -46,7 +57,7 @@ label {
     height: 100%;
     background-color: black;
     position: absolute;
-    top: 0;
+    top: 120px;
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
@@ -64,12 +75,13 @@ label {
 .close
 {
     position: absolute;
-    top: 0;
-    right: 14px;
+    top: 41px;
+    right: 37px;
     font-size: 43px;
     transform: rotate(45deg);
     cursor: pointer;
     color: #ffffff;
+    text-decoration: none;
 
 }
 
@@ -83,3 +95,41 @@ label {
     text-align: end;
     padding: 0px 21px;
 }
+
+.minum-count
+{
+    display: flex;
+    margin: 20px;
+}
+
+.minum-count label
+{
+    width: 48px;
+    line-height: 19px;
+    text-align: center;
+    padding: 10px 0px;
+}
+.mini-input
+{
+    width: 107px;
+    padding: 29px;
+}
+
+@media(max-width:568px)
+{
+    .minum-count label {
+        width: 111px;
+        line-height: 19px;
+        text-align: center;
+        padding: 10px 0px;
+    }
+
+.minum-count
+{
+    display: inline;
+    margin: 0px;
+}
+
+
+}
+

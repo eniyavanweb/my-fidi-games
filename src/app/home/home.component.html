@@ -1,22 +1,31 @@
-
 <div class="row p-2">
-    <div class="col-md-5" *ngFor="let item of employee">
+    <div class="col-sm-6" *ngFor="let item of employee">
         <div class="card" *ngIf="!item.isedit; else elseBlock">
-            <div class="card-body">
-                <div class="card-title">
-                    {{item.name}}
+            <div class="center-possion">
+                <div class="card-body">
+                    <div class="card-title">
+                        {{item.name}}
+                    </div>
+                    <div class="card-subtitle">
+                        {{item.description}}
+                    </div>
+                    <div class="flex-in">
+                        <div class="card-subtitle">
+                            <i class="fas fa-user-friends"></i> {{item.description2}}
+                        </div>
+                        <div class="card-subtitle">
+                            -{{item.description3}} players
+                        </div>
+                    </div>
+                    <div class="card-text"  style="display:none;">
+                        Game url: {{item.address}}
+                    </div>
+                    <span>
+                        <a href="#" (click)="goToUrl(item.address)" class="btn btn-danger btn-xs"><i class="fas fa-play"></i> play</a>
+                        <a href="#" (click)="EditRecord(item)" class="btn btn-primary btn-xs">Edit Game</a>
+                        <a href="#" (click)="Deleteemployee(item.id)" class="btn btn-danger btn-xs">Delete Game</a>
+                    </span>
                 </div>
-                <div class="card-subtitle">
-                    Game Description: {{item.description}}
-                </div>
-                <div class="card-text"> 
-                    Game url: {{item.address}}
-                </div>
-                <span>
-                    <a href="#" (click)="goToUrl(item.address)" class="btn btn-danger btn-xs">play</a>
-                    <a href="#" (click)="EditRecord(item)" class="btn btn-primary btn-xs">Edit Game</a>
-                    <a href="#" (click)="Deleteemployee(item.id)" class="btn btn-danger btn-xs">Delete Game</a>
-                </span>
             </div>
         </div>
         <ng-template #elseBlock>
@@ -34,6 +43,12 @@
                                 <input type="text" [(ngModel)]="item.editdescription" class="form-control">
                             </div>
                             <div class="col-md-12">
+                                <input type="number" [(ngModel)]="item.editdescription2" class="form-control">
+                            </div>
+                            <div class="col-md-12">
+                                <input type="number" [(ngModel)]="item.editdescription3" class="form-control">
+                            </div>
+                            <div class="col-md-12">
                                 <input type="text" [(ngModel)]="item.editaddress" class="form-control">
                             </div>
                         </div>
@@ -45,5 +60,3 @@
         </ng-template>
     </div>
 </div>
-
-
