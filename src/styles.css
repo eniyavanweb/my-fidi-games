@@ -2,4 +2,9 @@
 body
 {
     background-color:#1d1824;
+    font-family: poppins;
+    text-align: center;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

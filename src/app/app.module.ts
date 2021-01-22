@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -15,6 +16,10 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { HomeComponent } from './home/home.component';
 import { routingComponent } from './app-routing.module';
+import { LikeComponent } from './like/like.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
@@ -28,6 +33,9 @@ import { routingComponent } from './app-routing.module';
     GameComponent,
     HomeComponent,
     routingComponent,
+    LikeComponent,
+
+
 
 
   ],
@@ -39,7 +47,9 @@ import { routingComponent } from './app-routing.module';
     FormsModule,
     AngularFireStorageModule,
     RouterModule,
-    
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

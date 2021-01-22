@@ -9,20 +9,17 @@ import { CrudService } from '../service/crud.service';
 })
 export class HomeComponent implements OnInit {
 
-	@Input() movieTitle: string | undefined;
-	@Input() movieDescription: string | undefined;
-	@Input() likesCount: number | any;
-	@Input() isActive: boolean | undefined;
-
-
-
   employee: any;
   employeeName: string | undefined;
   employeeAddress: string | undefined;
   description: string | undefined;
-  description2: Number | undefined;
-  description3: Number | undefined;
+  minumcount: any | undefined;
+  maximum: any | undefined;
   message: string | undefined;
+  imgurl:string | undefined;
+
+
+  
 
 
   constructor(public crudservice: CrudService) { }
@@ -38,26 +35,53 @@ export class HomeComponent implements OnInit {
           isedit: false,
           ...e.payload.doc.data() as ['name'],
           ...e.payload.doc.data() as ['address'],
+          ...e.payload.doc.data() as ['imgurl'],
           ...e.payload.doc.data() as ['description'],
-          ...e.payload.doc.data() as ['description2'],
-          ...e.payload.doc.data() as ['description2']
+          ...e.payload.doc.data() as ['minumcount'],
+          ...e.payload.doc.data() as ['maximum'],
+
         };
       })
       console.log(this.employee);
 
     });
   }
-  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editdescription2: any; description2: any; editdescription3: any; description3: any; editaddress: any; address: any; }) {
+
+  
+  CreateRecord() {
+    let Record = { 'name': this.employeeName, 'address': this.employeeAddress, 'description': this.description, 'minumcount': this.minumcount, 'maximum': this.maximum, 'imgurl': this.imgurl };
+
+
+    this.crudservice.create_Newemployee(Record).then(res => {
+
+      this.employeeName = "";
+      this.employeeAddress = "";
+      this.imgurl = "";
+      this.description = "";
+      this.minumcount = "";
+      this.maximum = "";
+      console.log(res);
+      this.message = "Game Added";
+    }).catch(error => {
+      console.log(error);
+    });
+
+  }
+
+
+  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editimgurl: any; imgurl: any; editminumcount: any; minumcount: any; editmaximum: any; maximum: any; editaddress: any; address: any; editlike: any; }) {
     Record.isedit = true;
     Record.editname = Record.name;
     Record.editdescription = Record.description;
-    Record.editdescription2 = Record.description2;
-    Record.editdescription3 = Record.description3;
+    Record.editimgurl = Record.imgurl;
+    Record.editminumcount = Record.minumcount;
+    Record.editmaximum = Record.maximum;
     Record.editaddress = Record.address;
+
   }
 
-  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; editdescription2: any; editdescription3: any; id: string; isedit: boolean; }) {
-    let record = { 'name': recorddata.editname, 'address': recorddata.editaddress, 'description': recorddata.editdescription, 'description2': recorddata.editdescription2, 'description3': recorddata.editdescription3 };
+  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; editimgurl: any; editminumcount: any; editmaximum: any;  id: string; isedit: boolean; }) {
+    let record = { 'name': recorddata.editname, 'address': recorddata.editaddress, 'description': recorddata.editdescription, 'imgurl': recorddata.editimgurl, 'minumcount': recorddata.editminumcount, 'maximum': recorddata.editmaximum };
     this.crudservice.update_employee(recorddata.id, record);
     recorddata.isedit = false;
   }
@@ -69,11 +93,6 @@ export class HomeComponent implements OnInit {
   goToUrl(url: any): void {
     window.open("" + url, "_blank");
   }
-
-  onClick() {
-		this.likesCount += (this.isActive) ? -1 : 1;
-		this.isActive = !this.isActive;
-	}
 
 }
 
