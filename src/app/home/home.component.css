@@ -10,7 +10,7 @@
 .row-content {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5em;
+    padding-left: 2em;
 }
 
 .card {
@@ -370,22 +370,23 @@ h1 {
     .card-body {
         flex: 1 1 auto;
         padding: 1rem 1rem;
-        width: 600px;
-        height: 333px;
+        width: 415px;
+        height: 315px;
         background: #292333;
         border-radius: 40px;
     }
     .card-description {
         color: #fff;
-        font-size: 16px;
+        font-size: 12px;
         font-family: poppins;
         font-weight: 300;
-        width: 343px;
-        height: 154px;
+        width: 185px;
+        height: 130px;
     }
     .row-content {
-        padding-left: 10em;
+        padding-left: 6em;
         display: flex;
+
     }
     .model-content {
         background-color: #1A121E;
@@ -394,6 +395,26 @@ h1 {
         border-radius: 16px;
         height: 831px;
         padding-top: 3em;
+    }
+    .card-title {
+        color: #fff;
+        font-size: 22px;
+        font-family: poppins;
+        font-weight: 600;
+    }
+    .btn-danger {
+        width: 117px;
+        left: 32%;
+    }
+    .flex-in {
+        left: 67%;
+        top: 82%;
+        font-size: 15px;
+    }
+
+    .heart-btn {
+        top: 66%;
+        left: 0%;
     }
 }
 
@@ -407,6 +428,23 @@ h1 {
         margin-right: 6em;
         position: relative;
         left: -5em;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        width: 530px;
+        height: 333px;
+        background: #292333;
+        border-radius: 40px;
+    }
+    .card-description {
+        color: #fff;
+        font-size: 16px;
+        font-family: poppins;
+        font-weight: 300;
+        width: 303px;
+        height: 154px;
     }
 }
 
