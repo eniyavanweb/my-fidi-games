@@ -6,22 +6,19 @@ h5,
 h6 {
     margin: 0;
 }
-
 .heading {
     background-color: #1D1824;
 }
-
 .heading h1 {
     font-size: 36px;
     color: #fff;
     font-weight: 600;
     font-family: poppins;
-    padding-left: 3em;
+    padding-left: 2em;
     padding-top: 2em;
     padding-bottom: 1em;
     text-align: left;
 }
-
 @media(max-width:1160px) {
     .heading h1 {
         font-size: 36px;
@@ -34,7 +31,12 @@ h6 {
         text-align: left;
     }
 }
-
+@media(max-width:995px)
+{
+    .heading h1 {
+        padding-left: 6em;
+    }
+}
 @media (max-width: 972px)
 {
    .heading h1 {
@@ -42,42 +44,29 @@ h6 {
        color: #fff;
        font-weight: 600;
        font-family: poppins;
-       padding-left: 5.3em;
+       padding-left: 6.7em;
        padding-top: 2em;
        padding-bottom: 1em;
        text-align: left;
    }
-   
 }
-
  @media (max-width: 952px)
  {
     .heading h1 {
-        font-size: 36px;
-        color: #fff;
-        font-weight: 600;
-        font-family: poppins;
-        padding-left: 5em;
-        padding-top: 2em;
-        padding-bottom: 1em;
-        text-align: left;
+        padding-left: 6.3em;
     }
-    
  }
-
+ @media(max-width:905px)
+ {
+    .heading h1 {
+        padding-left: 5.5em;
+    }
+ }
 @media(max-width:700px) {
     .heading h1 {
-        font-size: 36px;
-        color: #fff;
-        font-weight: 600;
-        font-family: poppins;
         padding-left: 2.5em;
-        padding-top: 2em;
-        padding-bottom: 1em;
-        text-align: left;
     }
 }
-
 @media(max-width:542px) {
     .heading h1 {
         font-size: 36px;
@@ -90,7 +79,6 @@ h6 {
         text-align: left;
     }
 }
-
 @media(max-width:400px) {
     .heading h1 {
         font-size: 36px;
