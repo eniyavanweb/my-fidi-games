@@ -14,10 +14,18 @@ h6 {
     color: #fff;
     font-weight: 600;
     font-family: poppins;
-    padding-left: 2em;
+    padding-left: 3.5em;
     padding-top: 2em;
     padding-bottom: 1em;
     text-align: left;
+}
+@media (max-width: 1400px)
+{
+    .heading h1 {
+       
+        padding-left: 1.5em;
+
+    }
 }
 @media(max-width:1160px) {
     .heading h1 {

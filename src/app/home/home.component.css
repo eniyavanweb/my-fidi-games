@@ -9,11 +9,11 @@
 .row-content {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 2em;
+    padding-left: 7em;
 }
 .card {
     word-wrap: break-word;
-    margin: 20px;
+    margin: 20px
 }
 .main-content {
     display: flex;
@@ -236,6 +236,14 @@ h1 {
     padding-left: 23px;
     text-align: left;
 }
+@media(max-width:1460px)
+{
+    .row-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2em;
+    }
+}
 @media(max-width:1360px) {
     .card-body {
         flex: 1 1 auto;
@@ -253,6 +261,7 @@ h1 {
         width: 257px;
         height: 154px;
     }
+
 }
 @media(max-width:1230px) {
     .card-body {
