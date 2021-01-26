@@ -20,7 +20,6 @@ export class CrudService {
   {
     return this.fireservices.collection('Games').snapshotChanges();
   }
-
   update_employee(recordid: string, record: Partial<unknown>)
   {
     this.fireservices.doc('Games/' + recordid).update(record);
@@ -31,6 +30,8 @@ export class CrudService {
     this.fireservices.doc('Games/' + record_id).delete();
   }
 
-  
+  like(col:any){
+    this.fireservices.doc('game/').update(col);
+  }
 
 }

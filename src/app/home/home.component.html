@@ -28,10 +28,13 @@
                         Game url: {{item.address}}
                     </div>
                     <div class="heart-btn">
-                        <i class="far fa-heart"></i>
+                        <i (click)="Updatarecordlike(item)" class="far fa-heart"></i>
+                        <div class="card-like">
+                            {{item.like}}
+                        </div>
                     </div>
                     <span class="all-button">
-                        <a href="#" style="display: none;" (click)="EditRecord(item)"
+                        <a href="#" style="display: none;" (click)="Updatarecord(item)"
                             class="btn btn-primary btn-xs">Edit Game</a>
                         <a href="#" style="display: none;" (click)="Deleteemployee(item.id)"
                             class="btn btn-danger my-del btn-xs">Delete Game</a>
@@ -57,6 +60,10 @@
                             </div>
 
                             <div class="col-md-12">
+                                <input type="text" [(ngModel)]="item.editlike" class="form-control">
+                            </div>
+
+                            <div class="col-md-12">
                                 <input type="text" [(ngModel)]="item.editimgurl" class="form-control">
                             </div>
 
@@ -79,9 +86,7 @@
     </div>
 </div>
 
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="bg-model">
@@ -96,35 +101,34 @@
                             </div>
                             <div class="form-group">
                                 <label>Name of the Game</label>
-                                <input type="text" class="form-control game-name" [(ngModel)]="employeeName"
-                                    placeholder="Enter Game Name">
+                                <input type="text" class="form-control game-name" [(ngModel)]="employeeName" placeholder="Enter Game Name">
+                            </div>
+
+                            <div class="form-group" style="display:none;">
+                                <label>like</label>
+                                <input type="text" class="form-control" [(ngModel)]="like" placeholder="Enter like">
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <input maxlength="120" type="text" class="form-control description"
-                                    [(ngModel)]="description" placeholder="Enter description">
+                                <input maxlength="120" type="text" class="form-control description" [(ngModel)]="description" placeholder="Enter description">
                             </div>
                             <div class="form-group">
                                 <label>Player Count</label><br>
                                 <div class="minum-count">
                                     <label class="mini">Minum count</label>
-                                    <input type="number" max="20" min="0" class="form-control mini-input"
-                                        [(ngModel)]="minumcount" placeholder="">
+                                    <input type="number" max="20" min="0" class="form-control mini-input" [(ngModel)]="minumcount" placeholder="">
 
                                     <label class="mini">Maximun count</label>
-                                    <input type="number" max="20" min="0" class="form-control mini-input"
-                                        [(ngModel)]="maximum" placeholder="">
+                                    <input type="number" max="20" min="0" class="form-control mini-input" [(ngModel)]="maximum" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Game URL</label>
-                                <input type="text" class="form-control game-url" [(ngModel)]="employeeAddress"
-                                    placeholder="Enter Game URL">
+                                <input type="text" class="form-control game-url" [(ngModel)]="employeeAddress" placeholder="Enter Game URL">
                             </div>
                             <div class="form-group">
                                 <label>IMG URL</label>
-                                <input type="text" class="form-control img-url" [(ngModel)]="imgurl"
-                                    placeholder="Enter IMG URL">
+                                <input type="text" class="form-control img-url" [(ngModel)]="imgurl" placeholder="Enter IMG URL">
                             </div>
                             <div class="form-group btn-btn">
                                 <button class="btn btn-primary all-primary" (click)="CreateRecord()">Submit</button>

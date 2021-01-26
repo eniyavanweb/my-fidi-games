@@ -1,4 +1,4 @@
-import { Component,  Input,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../service/crud.service';
 
 
@@ -17,14 +17,11 @@ export class HomeComponent implements OnInit {
   maximum: any | undefined;
   message: string | undefined;
   imgurl:string | undefined;
-
-
-  
+  like: any | number=0;
+  col: number = 0;
 
 
   constructor(public crudservice: CrudService) { }
-
-
 
   ngOnInit() {
     this.crudservice.get_Allemployee().subscribe(data => {
@@ -39,6 +36,7 @@ export class HomeComponent implements OnInit {
           ...e.payload.doc.data() as ['description'],
           ...e.payload.doc.data() as ['minumcount'],
           ...e.payload.doc.data() as ['maximum'],
+          ...e.payload.doc.data() as ['like']
 
         };
       })
@@ -49,7 +47,7 @@ export class HomeComponent implements OnInit {
 
   
   CreateRecord() {
-    let Record = { 'name': this.employeeName, 'address': this.employeeAddress, 'description': this.description, 'minumcount': this.minumcount, 'maximum': this.maximum, 'imgurl': this.imgurl };
+    let Record = { 'name': this.employeeName, 'address': this.employeeAddress, 'description': this.description, 'like':this.like, 'minumcount': this.minumcount, 'maximum': this.maximum, 'imgurl': this.imgurl };
 
 
     this.crudservice.create_Newemployee(Record).then(res => {
@@ -58,6 +56,7 @@ export class HomeComponent implements OnInit {
       this.employeeAddress = "";
       this.imgurl = "";
       this.description = "";
+      this.like = "";
       this.minumcount = "";
       this.maximum = "";
       console.log(res);
@@ -69,21 +68,28 @@ export class HomeComponent implements OnInit {
   }
 
 
-  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editimgurl: any; imgurl: any; editminumcount: any; minumcount: any; editmaximum: any; maximum: any; editaddress: any; address: any; editlike: any; }) {
+  EditRecord(Record: { isedit: boolean; editname: any; name: any; editdescription: any; description: any; editimgurl: any; imgurl: any; editlike: any; like: any; editminumcount: any; minumcount: any; editmaximum: any; maximum: any; editaddress: any; address: any; }) {
     Record.isedit = true;
     Record.editname = Record.name;
     Record.editdescription = Record.description;
     Record.editimgurl = Record.imgurl;
+    Record.editlike = Record.like;
     Record.editminumcount = Record.minumcount;
     Record.editmaximum = Record.maximum;
     Record.editaddress = Record.address;
 
   }
 
-  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; editimgurl: any; editminumcount: any; editmaximum: any;  id: string; isedit: boolean; }) {
-    let record = { 'name': recorddata.editname, 'address': recorddata.editaddress, 'description': recorddata.editdescription, 'imgurl': recorddata.editimgurl, 'minumcount': recorddata.editminumcount, 'maximum': recorddata.editmaximum };
+  Updatarecord(recorddata: { editname: any; editaddress: any; editdescription: any; editlike: any; editimgurl: any; editminumcount: any; editmaximum: any; id: string; isedit: boolean; }) {
+    let record = { 'name': recorddata.editname, 'address': recorddata.editaddress, 'description': recorddata.editdescription, 'like':recorddata.editlike, 'imgurl': recorddata.editimgurl, 'minumcount': recorddata.editminumcount, 'maximum': recorddata.editmaximum };
     this.crudservice.update_employee(recorddata.id, record);
     recorddata.isedit = false;
+  }
+  
+  Updatarecordlike(recorddata: { id: string; like:any; }) {
+
+    let record = { 'like': recorddata.like +=1 };
+    this.crudservice.update_employee(recorddata.id, record);
   }
 
   Deleteemployee(record_id: any) {
@@ -93,6 +99,17 @@ export class HomeComponent implements OnInit {
   goToUrl(url: any): void {
     window.open("" + url, "_blank");
   }
+
+  likedata(col:any){
+    let likedata = {'col': col.editlike}
+    this.crudservice.like(col);
+  }
+
+  mylike()
+  {
+    this.col++;
+  }
+
 
 }
 
