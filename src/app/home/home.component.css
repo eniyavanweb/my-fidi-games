@@ -1,13 +1,37 @@
+
+.float-btn
+{
+    width: 219px;
+    height: 58px;
+    background: #FCBC3C;
+    display: flex;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'poppins';
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+    position: fixed;
+    bottom: 20px;
+    right: 42%;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
+    
+}
+
 .row-content {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 7em;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
 }
 
 .card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
-    width: 600px;
+    width: 564px;
     height: 333px;
     background: #292333;
     border-radius: 40px;
@@ -42,7 +66,10 @@
     top: 80%;
     left: 35%;
 }
-
+.add-game-btn
+{
+    color: #fff;
+}
 
 /*heart*/
 
@@ -62,7 +89,6 @@
     line-height: 26px;
     font-size: 16px;
 }
-
 
 /*close*/
 
@@ -90,6 +116,7 @@
 .card-title {
     color: #fff;
     font-size: 36px;
+    line-height: 32px;
     font-family: poppins;
     font-weight: 600;
 }
@@ -99,7 +126,7 @@
     font-size: 16px;
     font-family: poppins;
     font-weight: 300;
-    width: 395px;
+    width: 337px;
     height: 170px;
     margin-top: 20px;
 }
@@ -120,17 +147,15 @@ img {
     bottom: 7em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
 .heading {
     background-color: #1D1824;
+    width: 92%;
+    margin: auto;
+    text-align: left;
 }
 
 .heading h1 {
@@ -153,17 +178,10 @@ h6 {
     line-height: 34px;
 }
 
-.container {
-    background-color: #1A121E;
-    padding: 2em 6em;
-    text-align: left;
-}
 
 .container {
     background-color: #1A121E;
-    padding: 2em 6em;
-    text-align: left;
-    height: 806px;
+    padding-top: 7em;
 }
 
 .bg-model {
@@ -177,9 +195,9 @@ h6 {
 .model-content {
     background-color: #1A121E;
     width: 804px;
-    margin: auto;
     height: 840px;
-    padding-top: 5em;
+    text-align: center;
+    margin-top: 5em;
     border-radius: 16px;
 }
 
@@ -195,13 +213,10 @@ h6 {
 
 .form-group {
     text-align: left;
+    margin: auto;
     width: 408px;
     line-height: 36px;
-}
-
-.container {
-    max-width: 1320px;
-    text-align: -moz-center;
+    justify-content: center;
 }
 
 .description {
@@ -237,8 +252,8 @@ label {
 }
 
 .minum-count {
-    display: block ruby;
     padding: 10px 0px;
+    display: flex;
 }
 
 h1 {
@@ -290,12 +305,8 @@ h1 {
     text-align: left;
 }
 
-@media(max-width:1460px) {
-    .row-content {
-        display: flex;
-        flex-wrap: wrap;
-        padding-left: 6em;
-    }
+.back-button{
+    display: none;
 }
 
 @media(max-width:1360px) {
@@ -335,7 +346,9 @@ h1 {
         height: 154px;
     }
     .row-content {
-        padding-left: 1em;
+        display: flex;
+        width: 100%;
+        margin: auto;
     }
 }
 
@@ -353,10 +366,11 @@ h1 {
 @media(max-width:1200px) {
     .model-content {
         background-color: #1A121E;
-        width: 562px;
-        margin: auto;
-        height: 831px;
-        padding-top: 3em;
+        width: 804px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
+        border-radius: 16px;
     }
 }
 
@@ -400,16 +414,17 @@ h1 {
         height: 130px;
     }
     .row-content {
-        padding-left: 6em;
+        width: 95%;
+        margin: auto;
         display: flex;
     }
     .model-content {
         background-color: #1A121E;
-        width: 653px;
-        margin: auto;
+        width: 804px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
         border-radius: 16px;
-        height: 831px;
-        padding-top: 3em;
     }
     .card-title {
         color: #fff;
@@ -430,18 +445,22 @@ h1 {
         top: 66%;
         left: 0%;
     }
+    .heading {
+        background-color: #1D1824;
+        width: 85%;
+        margin: auto;
+        text-align: left;
+    }
 }
 
 @media(max-width:995px) {
     .model-content {
         background-color: #1A121E;
-        width: 653px;
-        height: 592px;
-        padding-top: 5em;
+        width: 529px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
         border-radius: 16px;
-        margin-right: 6em;
-        position: relative;
-        left: -5em;
     }
     .card-body {
         flex: 1 1 auto;
@@ -460,15 +479,47 @@ h1 {
         height: 154px;
     }
     .row-content {
-        padding-left: 15em;
         display: flex;
+        width: 61%;
+        margin: auto;
+    }
+    .heading {
+        width: 60%;
+        margin: auto;
+        text-align: left;
+    }
+    .float-btn {
+        width: 219px;
+        height: 58px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 16px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 35%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
     }
 }
 
 @media(max-width:905px) {
     .row-content {
-        padding-left: 12em;
+        display: flex;
+        width: 61%;
+        margin: auto;
     }
+
+    .heart-btn {
+        top: 66%;
+        left: 3%;
+    }
+
 }
 
 @media(max-width:800px) {
@@ -489,18 +540,46 @@ h1 {
         height: 154px;
     }
     .row-content {
-        padding-left: 2em;
-        display: inline-block;
+        display: flex;
+        width: 86%;
+        margin: auto;
     }
+    .heading {
+        width: 81%;
+        margin: auto;
+        text-align: left;
+    }
+
+   .flex-in {
+    left: 67%;
+    top: 82%;
+    font-size: 15px;
+ }
+ .card-title {
+
+    line-height: 28px;
+
+}
 }
 
 @media(max-width:760px) {
     .model-content {
         background-color: #1A121E;
-        width: 599px;
+        width: 529px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
+        border-radius: 16px;
+    }
+    .heading {
+        width: 81%;
         margin: auto;
-        height: 831px;
-        padding-top: 3em;
+        text-align: left;
+    }
+    .card-title {
+
+        line-height: 25px;
+    
     }
 }
 
@@ -521,42 +600,41 @@ h1 {
         width: 280px;
         height: 154px;
     }
-    .row-content {
-        padding-left: 0em;
-        display: inline-block;
-    }
+
+
 }
 
 @media(max-width:676px) {
     .model-content {
         background-color: #1A121E;
-        width: 649px;
-        height: 453px;
-        padding-top: 1em;
+        width: 529px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
         border-radius: 16px;
-        margin-right: 0em;
-        position: relative;
-        left: -5em;
     }
+
 }
 
 @media(max-width:650px) {
     .model-content {
         background-color: #1A121E;
-        width: 527px;
-        height: 729px;
-        padding-top: 5em;
-        padding-left: 0em;
-        margin-left: 4em;
+        width: 529px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
+        border-radius: 16px;
     }
     .main-content {
         display: flex;
         margin-top: 10px;
     }
-    .heart-btn {
-        top: 60%;
-        left: 6%;
+    .card-title {
+
+        line-height: 22px;
+    
     }
+
 }
 
 @media(max-width:609px) {
@@ -586,7 +664,11 @@ h1 {
         color: #fff;
         font-size: 14px;
         font-weight: 300;
-        font-family: poppins;
+        font-family: 'poppins';
+        left: 67%;
+        top: 83%;
+        font-size: 15px;
+        
     }
     .card-body {
         flex: 1 1 auto;
@@ -595,6 +677,20 @@ h1 {
         height: 233px;
         background: #292333;
         border-radius: 40px;
+    }
+    .row-content {
+        display: flex;
+        width: 100%;
+        margin: auto;
+    }
+    .heading {
+        width: 100%;
+        margin: auto;
+        text-align: left;
+    }
+    .heart-btn {
+        top: 60%;
+        left: 3%;
     }
 }
 
@@ -609,6 +705,9 @@ h1 {
         font-weight: 300;
         width: 239px;
         height: 50px;
+        line-height: 14px;
+        position: relative;
+        top: -8px;
     }
     .btn-danger {
         width: 88px;
@@ -634,13 +733,14 @@ h1 {
         color: #fff;
         font-size: 12px;
         font-weight: 300;
-        font-family: poppins;
+        top: 76%;
+        font-family: 'poppins';
     }
     .card-body {
         flex: 1 1 auto;
         padding: 1rem 1rem;
         width: 369px;
-        height: 148px;
+        height: 181px;
         background: #292333;
         border-radius: 16px;
     }
@@ -649,37 +749,72 @@ h1 {
         left: 0%;
         font-size: 14px;
     }
+
+    .row-content {
+
+        display: flex;
+        width: 90%;
+        margin: auto;
+    }
+    .heading {
+        width: 85%;
+        margin: auto;
+        text-align: left;
+    }
+    .float-btn {
+        width: 200px;
+        height: 48px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 29%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
+    }
+
+    .card-like {
+        padding-left: 6px;
+        line-height: 13px;
+        font-size: 13px;
+    }
 }
 
 @media(max-width:550px) {
     .model-content {
         background-color: #1A121E;
-        width: 507px;
-        height: 831px;
-        padding-top: 3em;
-        margin-left: 5em;
+        width: 515px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
+        border-radius: 16px;
     }
     .main-content {
         display: flex;
-        margin-top: 5px;
+        margin-top: -5px;
     }
+    .heart-btn {
+        top: 47%;
+        left: -2%;
+    }
+    
 }
 
 @media(max-width:509px) {
     .model-content {
         background-color: #1A121E;
-        width: 570px;
-        height: 453px;
-        padding-top: 1em;
+        width: 485px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
         border-radius: 16px;
-        margin-right: 0em;
-        position: relative;
-        left: -7em;
-    }
-    .container {
-        background-color: #1A121E;
-        padding: 2em 5em;
-        text-align: left;
     }
     .form-group {
         text-align: left;
@@ -695,30 +830,69 @@ h1 {
         border-radius: 16px;
         margin-top: 50px;
         position: absolute;
-        left: 24%;
+        left: 30%;
     }
     .card-like {
         padding-left: 6px;
         line-height: 16px;
         font-size: 12px;
     }
+    .container {
+        background-color: #1A121E;
+        padding-top: 5em;
+    }
+    .float-btn {
+        width: 200px;
+        height: 48px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
+    }
+
+    label
+    {
+        font-size: 10px;
+    }
 }
 
 @media(max-width:450px) {
     .model-content {
-        width: 614px;
-        height: 453px;
-        padding-top: 1em;
+        background-color: #1A121E;
+        width: 422px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
         border-radius: 16px;
-        margin-right: 0em;
-        position: relative;
-        left: -4.7em;
     }
     .close-btn {
         font-size: 15.59px;
         text-align: end;
         cursor: pointer;
         padding-right: 0em;
+        display: none;
+    }
+    .back-button{
+        position: absolute;
+        top: 88px;
+        left: 68px;
+        font-family: 'Poppins';
+        font-size: 20px;
+        display: inline;
+    }
+    .add-games
+    {
+        display: none;
     }
     h1 {
         font-size: 20px;
@@ -728,13 +902,6 @@ h1 {
         font-style: normal;
         line-height: 30px;
         padding-left: 90px;
-    }
-    .model-content {
-        background-color: #1A121E;
-        width: 345px;
-        margin: auto;
-        height: 831px;
-        padding-top: 3em;
     }
     .form-group {
         text-align: left;
@@ -749,16 +916,9 @@ h1 {
         margin-top: 3px;
     }
     .heart-btn {
-        top: 42%;
+        top: 47%;
         left: 0%;
         font-size: 14px;
-    }
-    .container {
-        background-color: #1A121E;
-        padding: 2em 6em;
-        text-align: left;
-        height: 856px;
-        width: 450px;
     }
     .all-primary {
         background-color: #FCBC3C;
@@ -769,24 +929,67 @@ h1 {
         border-radius: 16px;
         margin-top: 50px;
         position: absolute;
-        left: 42%;
+        left: 25%;
     }
     .card-like {
         padding-left: 6px;
         line-height: 16px;
         font-size: 12px;
     }
+    .row-content {
+
+        display: flex;
+        width: 100%;
+        margin: auto;
+    }
+    .heading {
+        width: 100%;
+        margin: auto;
+        text-align: left;
+    }
+    .responsive-back-btn
+    {
+        font-style: normal;
+        font-size: 20px;
+        font-family: 'Poppins';
+        font-weight: 600;
+    }
+    .float-btn {
+        width: 200px;
+        height: 48px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 23%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
+    }
 }
 
 @media(max-width:400px) {
     .model-content {
-        width: 570px;
-        height: 453px;
-        padding-top: 1em;
+        background-color: #1A121E;
+        width: 356px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
         border-radius: 16px;
-        margin-right: 0em;
-        position: relative;
-        left: -9.6em;
+    }
+    .back-button {
+        position: absolute;
+        top: 88px;
+        left: 25px;
+        font-family: 'Poppins';
+        font-size: 20px;
+        display: inline;
     }
     .close-btn {
         font-size: 12.59px;
@@ -808,12 +1011,41 @@ h1 {
         border-radius: 16px;
         margin-top: 50px;
         position: absolute;
-        left: 38%;
+        left: 20%;
     }
     .card-like {
         padding-left: 6px;
         line-height: 16px;
         font-size: 12px;
+    }
+    .row-content {
+
+        display: flex;
+        width: 100%;
+        margin: auto;
+    }
+    .heading h1 {
+        font-size: 31px;
+        color: #fff;
+        padding: 16px 26px;
+    }
+    .float-btn {
+        width: 200px;
+        height: 48px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 23%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
     }
 }
 
@@ -822,17 +1054,17 @@ h1 {
         flex: 1 1 auto;
         padding: 1rem;
         width: 335px;
-        height: 148px;
+        height: 181px;
         background: #292333;
         border-radius: 16px;
     }
     .card-description {
         color: #fff;
         font-size: 10px;
-        font-family: poppins;
+        font-family: 'poppins';
         font-weight: 300;
-        width: 217px;
-        height: 50px;
+        width: 203px;
+        height: 60px;
     }
     .close-btn {
         font-size: 12.59px;
@@ -840,15 +1072,58 @@ h1 {
         cursor: pointer;
         padding-right: 1.5em;
     }
+    
+    .btn-primary {
+        background-color: #FCBC3C;
+        border-color: #FCBC3C;
+        color: black;
+        width: 200px;
+        height: 48px;
+        border-radius: 16px;
+        margin-bottom: 48px;
+        margin-left: 4em;
+    }
+    .all-primary {
+        background-color: #FCBC3C;
+        border-color: #FCBC3C;
+        color: black;
+        width: 200px;
+        height: 48px;
+        border-radius: 16px;
+        margin-top: 50px;
+        position: absolute;
+        left: 3%;
+    }
+    .float-btn {
+        width: 200px;
+        height: 48px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 22.5%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
+    }
 }
+
+
 
 @media(max-width:350px) {
     .model-content {
         background-color: #1A121E;
-        width: 308px;
-        margin: auto;
-        height: 972px;
-        padding-top: 5em;
+        width: 529px;
+        height: 840px;
+        text-align: center;
+        margin-top: 5em;
+        border-radius: 16px;
     }
     .form-group {
         text-align: left;
@@ -863,7 +1138,7 @@ h1 {
         margin-top: 1px;
     }
     .heart-btn {
-        top: 42%;
+        top: 45%;
         left: 0%;
         font-size: 14px;
     }
@@ -882,11 +1157,40 @@ h1 {
         border-radius: 16px;
         margin-top: 50px;
         position: absolute;
-        left: 42%;
+        left: 3%;
     }
     .card-like {
         padding-left: 6px;
         line-height: 16px;
         font-size: 12px;
+    }
+
+    .btn-primary {
+        background-color: #FCBC3C;
+        border-color: #FCBC3C;
+        color: black;
+        width: 200px;
+        height: 48px;
+        border-radius: 16px;
+        margin-bottom: 48px;
+        margin-left: 6em;
+    }
+    .float-btn {
+        width: 200px;
+        height: 48px;
+        background: #FCBC3C;
+        display: flex;
+        border-radius: 10px;
+        font-size: 14px;
+        font-family: 'poppins';
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        text-decoration: none;
+        position: fixed;
+        bottom: 20px;
+        right: 22%;
+        box-shadow: 4px 8px 10px rgb(0 0 0 / 25%);
     }
 }

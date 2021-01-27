@@ -1,92 +1,97 @@
-<div class="row-content">
-    <div class="col-content" *ngFor="let item of employee">
-        <div class="card" *ngIf="!item.isedit; else elseBlock">
-            <div class="center-possion">
-                <div class="card-body">
-                    <div class="main-content">
-                        <div class="img-file">
-                            <img src={{item.imgurl}} width="156px" height="156px">
-                        </div>
-                        <div class="my-display">
-                            <div class="card-title">
-                                {{item.name}}
+<div>
+    <div class="heading">
+        <h1>FidiGames</h1>
+    </div>
+    <div class="row-content">
+        <div class="col-content" *ngFor="let item of employee">
+            <div class="card" *ngIf="!item.isedit; else elseBlock">
+                <div class="center-possion">
+                    <div class="card-body">
+                        <div class="main-content">
+                            <div class="img-file">
+                                <img src={{item.imgurl}} width="156px" height="156px">
                             </div>
-                            <div class="card-description">
-                                {{item.description}}
+                            <div class="my-display">
+                                <div class="card-title">
+                                    {{item.name}}
+                                </div>
+                                <div class="card-description">
+                                    {{item.description}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex-in">
-                        <div class="card-count">
-                            <i class="fas fa-user-friends"></i> {{item.minumcount}}
+                        <div class="flex-in">
+                            <div class="card-count">
+                                <i class="fas fa-user-friends"></i> {{item.minumcount}}
+                            </div>
+                            <div class="card-count">
+                                 -{{item.maximum}} players
+                            </div>
                         </div>
-                        <div class="card-count">
-                            -{{item.maximum}} players
+                        <div class="card-text" style="display:none;">
+                            Game url: {{item.address}}
                         </div>
-                    </div>
-                    <div class="card-text" style="display:none;">
-                        Game url: {{item.address}}
-                    </div>
-                    <div class="heart-btn">
-                        <i (click)="Updatarecordlike(item)" class="far fa-heart"></i>
-                        <div class="card-like">
-                            {{item.like}}
+                        <div class="heart-btn">
+                            <i (click)="Updatarecordlike(item)" class="far fa-heart"></i>
+                            <div class="card-like">
+                                {{item.like}}
+                            </div>
                         </div>
+                        <span class="all-button">
+                            <a href="#" style="display: none;" (click)="Updatarecord(item)"
+                                class="btn btn-primary btn-xs">Edit Game</a>
+                            <a href="#" style="display: none;" (click)="Deleteemployee(item.id)"
+                                class="btn btn-danger my-del btn-xs">Delete Game</a>
+                            <a href="#" (click)="goToUrl(item.address)" class="btn btn-danger btn-xs"><i
+                                    class="fas fa-play"></i> Play</a>
+                        </span>
                     </div>
-                    <span class="all-button">
-                        <a href="#" style="display: none;" (click)="Updatarecord(item)"
-                            class="btn btn-primary btn-xs">Edit Game</a>
-                        <a href="#" style="display: none;" (click)="Deleteemployee(item.id)"
-                            class="btn btn-danger my-del btn-xs">Delete Game</a>
-                        <a href="#" (click)="goToUrl(item.address)" class="btn btn-danger btn-xs"><i
-                                class="fas fa-play"></i> Play</a>
-                    </span>
                 </div>
             </div>
+            <ng-template #elseBlock>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            Edit Game
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editname" class="form-control">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editdescription" class="form-control">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editlike" class="form-control">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editimgurl" class="form-control">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="number" [(ngModel)]="item.editminumcount" class="form-control">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="number" [(ngModel)]="item.editmaximum" class="form-control">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editaddress" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-danger btn-xs" (click)="item.isedit = false">Cancel</a>
+                        <a href="#" class="btn btn-primary btn-xs" (click)="Updatarecord(item)">Update Game</a>
+                    </div>
+                </div>
+            </ng-template>
         </div>
-        <ng-template #elseBlock>
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">
-                        Edit Game
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="text" [(ngModel)]="item.editname" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" [(ngModel)]="item.editdescription" class="form-control">
-                            </div>
-
-                            <div class="col-md-12">
-                                <input type="text" [(ngModel)]="item.editlike" class="form-control">
-                            </div>
-
-                            <div class="col-md-12">
-                                <input type="text" [(ngModel)]="item.editimgurl" class="form-control">
-                            </div>
-
-                            <div class="col-md-12">
-                                <input type="number" [(ngModel)]="item.editminumcount" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="number" [(ngModel)]="item.editmaximum" class="form-control">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" [(ngModel)]="item.editaddress" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-danger btn-xs" (click)="item.isedit = false">Cancel</a>
-                    <a href="#" class="btn btn-primary btn-xs" (click)="Updatarecord(item)">Update Game</a>
-                </div>
-            </div>
-        </ng-template>
     </div>
 </div>
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="bg-model">
@@ -96,12 +101,16 @@
                             <div class="close-btn">
                                 <i data-dismiss="modal" class="fas fa-times"></i>
                             </div>
-                            <div class="row justify-content-center p-2">
-                                <h1>Add a Games</h1>
+                            <div class="back-button">
+                                <p data-dismiss="modal" class="responsive-back-btn">  < Add a Game</p>
+                            </div>
+                            <div class="row">
+                                <h1 class="add-games">Add a Game</h1>
                             </div>
                             <div class="form-group">
                                 <label>Name of the Game</label>
-                                <input type="text" class="form-control game-name" [(ngModel)]="employeeName" placeholder="Enter Game Name">
+                                <input type="text" class="form-control game-name" [(ngModel)]="employeeName"
+                                    placeholder="Enter Game Name">
                             </div>
 
                             <div class="form-group" style="display:none;">
@@ -110,25 +119,32 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <input maxlength="120" type="text" class="form-control description" [(ngModel)]="description" placeholder="Enter description">
+
+                                <textarea maxlength="118" type="text" class="form-control description"
+                                    [(ngModel)]="description" placeholder="Enter description"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Player Count</label><br>
+                                <label>players Count</label><br>
                                 <div class="minum-count">
-                                    <label class="mini">Minum count</label>
-                                    <input type="number" max="20" min="0" class="form-control mini-input" [(ngModel)]="minumcount" placeholder="">
+                                    <label class="mini">Minimum count</label>
+                                    <input type="number" max="20" min="0" class="form-control mini-input"
+                                        [(ngModel)]="minumcount" placeholder="">
 
-                                    <label class="mini">Maximun count</label>
-                                    <input type="number" max="20" min="0" class="form-control mini-input" [(ngModel)]="maximum" placeholder="">
+                                    <label class="mini">Maximum count</label>
+                                    <input type="number" max="20" min="0" class="form-control mini-input"
+                                        [(ngModel)]="maximum" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Game URL</label>
-                                <input type="text" class="form-control game-url" [(ngModel)]="employeeAddress" placeholder="Enter Game URL">
+                                <input type="text" class="form-control game-url" [(ngModel)]="employeeAddress"
+                                    placeholder="Enter Game URL">
                             </div>
                             <div class="form-group">
-                                <label>IMG URL</label>
-                                <input type="text" class="form-control img-url" [(ngModel)]="imgurl" placeholder="Enter IMG URL">
+                                <label>
+                                    Image URL</label>
+                                <input type="text" class="form-control img-url" [(ngModel)]="imgurl"
+                                    placeholder="Enter Image URL">
                             </div>
                             <div class="form-group btn-btn">
                                 <button class="btn btn-primary all-primary" (click)="CreateRecord()">Submit</button>
@@ -143,4 +159,8 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">+ Add New Game</button>
+
+
+<div class="add-game-btn">
+    <a data-toggle="modal" href=".bd-example-modal-lg" class="float-btn">+ Add New Game</a>
+</div>

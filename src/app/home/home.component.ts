@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   maximum: any | undefined;
   message: string | undefined;
   imgurl:string | undefined;
-  like: any | number=0;
+  like: any | number = 0;
   col: number = 0;
 
 
@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
     recorddata.isedit = false;
   }
   
-  Updatarecordlike(recorddata: { id: string; like:any; }) {
+  Updatarecordlike(recorddata: { id: string; like:any}) {
 
     let record = { 'like': recorddata.like +=1 };
     this.crudservice.update_employee(recorddata.id, record);
