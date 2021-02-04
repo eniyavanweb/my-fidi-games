@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       this.maximum = "";
       this.isUnderReview = false ;
       console.log(res);
-      this.message = "your game publish";
+      this.message = "The admin checks and publishes your game";
     }).catch(error => {
       console.log(error);
     });
