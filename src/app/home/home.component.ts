@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       this.maximum = "";
       this.isUnderReview = false ;
       console.log(res);
-      this.message = "Your game has been check and will be published";
+      this.message = "your game publish";
     }).catch(error => {
       console.log(error);
     });
@@ -91,4 +91,3 @@ export class HomeComponent implements OnInit {
     this.crudservice.like(col);
   }
 }
-
