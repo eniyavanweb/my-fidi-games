@@ -26,7 +26,7 @@ export class GameComponent implements OnInit {
   constructor(public crudservice: CrudService) { }
 
   ngOnInit() {
-    this.crudservice.get_Allemployee().subscribe(data => {
+    this.crudservice.get_gameusers().subscribe(data => {
 
       this.employee = data.map(e => {
         return {
@@ -52,7 +52,7 @@ export class GameComponent implements OnInit {
     let Record = { 'name': this.employeeName, 'address': this.employeeAddress, 'description': this.description, 'description2': this.description2, 'description3': this.description3, 'imgurl': this.imgurl, 'like': this.like };
 
 
-    this.crudservice.create_Newemployee(Record).then(res => {
+    this.crudservice.create_Gameusers(Record).then(res => {
 
       this.employeeName = "";
       this.employeeAddress = "";

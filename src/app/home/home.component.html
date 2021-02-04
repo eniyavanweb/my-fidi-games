@@ -3,7 +3,7 @@
         <h1>FidiGames</h1>
     </div>
     <div class="row-content">
-        <div class="col-content" *ngFor="let item of employee">
+        <div class="col-content" *ngFor="let item of gameuser">
             <div class="card" *ngIf="!item.isedit; else elseBlock">
                 <div class="center-possion">
                     <div class="card-body">
@@ -31,6 +31,11 @@
                         <div class="card-text" style="display:none;">
                             Game url: {{item.address}}
                         </div>
+
+                        <div class="card-text" style="display:none;">
+                            isUnderReview: {{item.address}}
+                        </div>
+
                         <div class="heart-btn">
                             <i (click)="Updatarecordlike(item)" class="far fa-heart"></i>
                             <div class="card-like">
@@ -40,7 +45,7 @@
                         <span class="all-button">
                             <a href="#" style="display: none;" (click)="Updatarecord(item)"
                                 class="btn btn-primary btn-xs">Edit Game</a>
-                            <a href="#" style="display: none;" (click)="Deleteemployee(item.id)"
+                            <a href="#" style="display: none;" (click)="Deletgame(item.id)"
                                 class="btn btn-danger my-del btn-xs">Delete Game</a>
                             <a href="#" (click)="goToUrl(item.address)" class="btn btn-danger btn-xs"><i
                                     class="fas fa-play"></i> Play</a>
@@ -69,6 +74,10 @@
 
                                 <div class="col-md-12">
                                     <input type="text" [(ngModel)]="item.editimgurl" class="form-control">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editisUnderReview" class="form-control">
                                 </div>
 
                                 <div class="col-md-12">
@@ -109,8 +118,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Name of the Game</label>
-                                <input type="text" class="form-control game-name" [(ngModel)]="employeeName"
+                                <input type="text" class="form-control game-name" [(ngModel)]="gamename"
                                     placeholder="Enter Game Name">
+                            </div>
+
+                            <div class="form-group" style="display: none;">
+                                <label [(ngModel)]="isUnderReview"></label>
                             </div>
 
                             <div class="form-group" style="display:none;">
@@ -119,12 +132,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-
                                 <textarea maxlength="118" type="text" class="form-control description"
                                     [(ngModel)]="description" placeholder="Enter description"></textarea>
                             </div>
+
                             <div class="form-group">
-                                <label>players Count</label><br>
+                                <label>Players Count</label><br>
                                 <div class="minum-count">
                                     <label class="mini">Minimum count</label>
                                     <input type="number" max="20" min="0" class="form-control mini-input"
@@ -137,7 +150,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Game URL</label>
-                                <input type="text" class="form-control game-url" [(ngModel)]="employeeAddress"
+                                <input type="text" class="form-control game-url" [(ngModel)]="Address"
                                     placeholder="Enter Game URL">
                             </div>
                             <div class="form-group">
@@ -150,7 +163,7 @@
                                 <button class="btn btn-primary all-primary" (click)="CreateRecord()">Submit</button>
                             </div>
                             <div class="form-group">
-                                <h4><b>{{message}}</b></h4>
+                                <h4 class="message"><b>{{message}}</b></h4>
                             </div>
                         </div>
                     </div>
